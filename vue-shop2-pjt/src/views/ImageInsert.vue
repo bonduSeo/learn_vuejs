@@ -21,7 +21,7 @@
               <div class="position-relative">
                 <!-- <img :src="item.path" class="img-fluid" /> -->
                 <img :src="`/static/img/${item.product_id}/${item.type}/${item.path}`" class="img-fluid" />
-                <div class="position-absolute top-0 end-0" style="cursor: pointer" @click="deleteImage(item.id)">X</div>
+                <div class="position-absolute top-0 end-0" style="cursor: pointer" @click="deleteImage(item)">X</div>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
               <div class="position-relative">
                 <!-- <img :src="item.path" class="img-fluid" /> -->
                 <img :src="`/static/img/${item.product_id}/${item.type}/${item.path}`" class="img-fluid" />
-                <div class="position-absolute top-0 end-0" style="cursor: pointer" @click="deleteImage(item.id)">X</div>
+                <div class="position-absolute top-0 end-0" style="cursor: pointer" @click="deleteImage(item)">X</div>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@
               <div class="position-relative">
                 <!-- <img :src="item.path" class="img-fluid" /> -->
                 <img :src="`/static/img/${item.product_id}/${item.type}/${item.path}`" class="img-fluid" />
-                <div class="position-absolute top-0 end-0" style="cursor: pointer" @click="deleteImage(item.id)">X</div>
+                <div class="position-absolute top-0 end-0" style="cursor: pointer" @click="deleteImage(item)">X</div>
               </div>
             </div>
           </div>
@@ -96,6 +96,7 @@
 export default {
   data() {
     return {
+      productId: 0,
       productName: "",
       productDetail: {},
       productImage: [],
@@ -124,9 +125,9 @@ export default {
 
       console.log(result);
     },
-    async deleteImage(id) {
+    async deleteImage({ id, product_id, type, path }) {
       console.log(id);
-      const result = await this.$delete(`/api/productImageDelete/${id}`);
+      const result = await this.$delete(`/api/productImageDelete/${id}/${product_id}/${type}/${path}`);
       console.log(result);
       this.getProductImage();
     },
