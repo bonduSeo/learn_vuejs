@@ -36,9 +36,11 @@ npn run build
 
 
 -----------
-vue add vuex /n
-vue add router /n
-npm i --s axios /n
+vue add vuex 
+
+vue add router 
+
+npm i --s axios 
 
 npm i --s vuex-persistedstate 
 vuex 새로고침해도 데이터 안날아가는 라이브러리
