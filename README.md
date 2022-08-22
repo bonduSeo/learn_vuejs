@@ -1,5 +1,12 @@
 # learn_vuejs
 
+
+vue.js 설치할것
+
+node, npm
+vue, cli
+vetur(익스텐션)
+
 터미널에서 뷰프로젝트 생성하기
 vue create 프로젝트이름
 
